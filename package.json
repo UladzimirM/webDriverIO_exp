@@ -4,7 +4,9 @@
   "description": "training",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js"
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "precommit": "lint-staged",
+    "eslint": "node_modules/.bin/eslint test/"
   },
   "author": "Vladimir Makarov",
   "license": "ISC",
@@ -18,8 +20,28 @@
     "@wdio/sync": "^5.20.1",
     "chai": "^4.2.0",
     "chai-webdriver": "^1.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-chai-expect": "^2.1.0",
+    "eslint-plugin-mocha": "^6.3.0",
+    "eslint-plugin-prettier": "^2.7.0",
+    "eslint-plugin-react": "^7.19.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^7.3.0",
     "local-runner": "^0.1.1-alpha",
+    "prettier": "^1.19.1",
     "webdriverio": "^5.21.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js, jsx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {}
 }
