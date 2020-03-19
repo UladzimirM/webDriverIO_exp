@@ -179,7 +179,7 @@ exports.config = {
    */
   beforeTest: function(test, context) {
     const chai = require("chai");
-    const chaiWebdriver = require("chai-webdriver").default;
+    const chaiWebdriver = require("chai-webdriverio").default;
 
     chai.use(chaiWebdriver(browser));
 
