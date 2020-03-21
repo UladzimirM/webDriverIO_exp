@@ -33,7 +33,25 @@ class BasePage {
   get resultValue() {
     return $('.example #result')
   }
-
+  get hereLink() {
+    return $(' .example a')
+  }
+  get iframeBody() {
+    return $('#tinymce')
+  }
+  get iframe() {
+    return $('#mceu_27 #mce_0_ifr')
+  }
+  sendTextToBody(text) {
+    this.iframeBody.waitForDisplayed()
+    this.iframeBody.clearValue()
+    this.iframeBody.click()
+    this.iframeBody.keys(text)
+  }
+  clickHereLink() {
+    this.hereLink.waitForDisplayed()
+    this.hereLink.click()
+  }
   clickTargetValue() {
     this.targetValue.waitForDisplayed()
     this.targetValue.click()
