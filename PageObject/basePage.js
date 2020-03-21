@@ -42,6 +42,36 @@ class BasePage {
   get iframe() {
     return $('#mceu_27 #mce_0_ifr')
   }
+  get columnA() {
+    return $('#column-a')
+  }
+  get columnB() {
+    return $('#column-b')
+  }
+  get columnAHeader() {
+    return $('#column-a header')
+  }
+  get columnBHeader() {
+    return $('#column-b header')
+  }
+  get dragggable() {
+    return $('#draggable')
+  }
+  get droppable() {
+    return $('#droppable')
+  }
+  get droppableTitle() {
+    return $('#droppable p')
+  }
+  dragDraggableToDroppable() {
+    this.dragggable.waitForDisplayed()
+    this.dragggable.dragAndDrop(this.droppable)
+  }
+
+  dragColumnAToColumnB() {
+    this.columnA.waitForDisplayed()
+    this.columnA.dragAndDrop(this.columnB)
+  }
   sendTextToBody(text) {
     this.iframeBody.waitForDisplayed()
     this.iframeBody.clearValue()
