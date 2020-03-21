@@ -103,5 +103,8 @@ class BasePage {
     this.password.waitForDisplayed()
     this.password.setValue(text)
   }
+  scrollToPageFooter() {
+    this.pageFooter.moveTo()
+  }
 }
 module.exports = new BasePage()
