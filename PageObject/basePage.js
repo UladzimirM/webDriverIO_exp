@@ -72,6 +72,16 @@ class BasePage {
   get dropdownMenuOption2() {
     return $('#dropdown option:nth-child(3)')
   }
+  get enabledButton() {
+    return $('#input-example button')
+  }
+  get inputEnabledField() {
+    return $('#input-example input')
+  }
+  clickEnableButton() {
+    this.enabledButton.waitForDisplayed()
+    this.enabledButton.click()
+  }
   clickDropdownMenu() {
     this.dropdownMenu.waitForDisplayed()
     this.dropdownMenu.click()
