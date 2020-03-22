@@ -63,6 +63,27 @@ class BasePage {
   get droppableTitle() {
     return $('#droppable p')
   }
+  get dropdownMenu() {
+    return $('#dropdown')
+  }
+  get dropdownMenuOption1() {
+    return $('#dropdown option:nth-child(2)')
+  }
+  get dropdownMenuOption2() {
+    return $('#dropdown option:nth-child(3)')
+  }
+  clickDropdownMenu() {
+    this.dropdownMenu.waitForDisplayed()
+    this.dropdownMenu.click()
+  }
+  clickDropdownMenuOption1() {
+    this.dropdownMenuOption1.waitForDisplayed()
+    this.dropdownMenuOption1.click()
+  }
+  clickDropdownMenuOption2() {
+    this.dropdownMenuOption1.waitForDisplayed()
+    this.dropdownMenuOption2.click()
+  }
   dragDraggableToDroppable() {
     this.dragggable.waitForDisplayed()
     this.dragggable.dragAndDrop(this.droppable)
