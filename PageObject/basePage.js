@@ -78,6 +78,20 @@ class BasePage {
   get inputEnabledField() {
     return $('#input-example input')
   }
+  get exampleButton() {
+    return $('.example button')
+  }
+  deleteButton(index) {
+    return $(`#elements button:nth-child(${index})`)
+  }
+  clickExampleButton() {
+    this.exampleButton.waitForDisplayed()
+    this.exampleButton.click()
+  }
+  clickDeleteButton(index) {
+    this.deleteButton(index).waitForDisplayed()
+    this.deleteButton(index).click()
+  }
   clickEnableButton() {
     this.enabledButton.waitForDisplayed()
     this.enabledButton.click()
