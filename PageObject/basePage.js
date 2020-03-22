@@ -81,6 +81,13 @@ class BasePage {
   get exampleButton() {
     return $('.example button')
   }
+  get pageButton() {
+    return $('#checkbox-example button')
+  }
+  clickPageButton() {
+    this.pageButton.waitForDisplayed()
+    this.pageButton.click()
+  }
   deleteButton(index) {
     return $(`#elements button:nth-child(${index})`)
   }
