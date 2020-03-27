@@ -84,13 +84,33 @@ class BasePage {
   get pageButton() {
     return $('#checkbox-example button')
   }
+  deleteButton(index) {
+    return $(`#elements button:nth-child(${index})`)
+  }
+  figures(index) {
+    return $(`.example .figure:nth-child(${index}) img`)
+  }
+  figureDetails(index) {
+    return $(`.example .figure:nth-child(${index}) .figcaption h5`)
+  }
+  link(index) {
+    return $(`ul li:nth-child(${index}) a`)
+  }
+  checkboxes(index) {
+    return $(`#checkboxes input:nth-child(${index})`)
+  }
+  specificChildElement(index) {
+    return this.parent.$(`li:nth-child(${index})`)
+  }
+  javascriptAlertButton(index) {
+    return $(`.example li:nth-child(${index}) button`)
+  }
+
   clickPageButton() {
     this.pageButton.waitForDisplayed()
     this.pageButton.click()
   }
-  deleteButton(index) {
-    return $(`#elements button:nth-child(${index})`)
-  }
+
   clickExampleButton() {
     this.exampleButton.waitForDisplayed()
     this.exampleButton.click()
@@ -146,12 +166,6 @@ class BasePage {
     this.resultValue.waitForDisplayed()
     return this.resultValue.getText()
   }
-  figures(index) {
-    return $(`.example .figure:nth-child(${index}) img`)
-  }
-  figureDetails(index) {
-    return $(`.example .figure:nth-child(${index}) .figcaption h5`)
-  }
 
   hoverOnFigure(index) {
     this.figures(index).waitForDisplayed()
@@ -161,20 +175,12 @@ class BasePage {
     this.figureDetails(index).waitForDisplayed()
     return this.figureDetails(index).getText()
   }
-  link(index) {
-    return $(`ul li:nth-child(${index}) a`)
-  }
-  checkboxes(index) {
-    return $(`#checkboxes input:nth-child(${index})`)
-  }
 
   clickCheckBox(index) {
     this.checkboxes(index).waitForDisplayed()
     this.checkboxes(index).click()
   }
-  specificChildElement(index) {
-    return this.parent.$(`li:nth-child(${index})`)
-  }
+
   getLiText() {
     this.childElements.filter(element => {
       console.log(element.getText())
@@ -206,12 +212,10 @@ class BasePage {
   scrollToPageFooter() {
     this.pageFooter.moveTo()
   }
-  javascriptAlertButton(index) {
-    return $(`.example li:nth-child(${index}) button`)
-  }
   clickJavascriptAlertButton(index) {
     this.javascriptAlertButton(index).waitForDisplayed()
     this.javascriptAlertButton(index).click()
   }
 }
-module.exports = new BasePage()
+export default BasePage
+//module.exports = BasePage

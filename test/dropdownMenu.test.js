@@ -1,4 +1,6 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+
+let basePage = new BasePage()
 describe('Dropdown menu', function() {
   it('Shoudl select option 1', function() {
     browser.url(`${browser.options.baseUrl}dropdown`)

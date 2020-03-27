@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('Wait for enabled', function() {
   it('should wait for the input field to be enabled', function() {
     browser.url(`${browser.options.baseUrl}dynamic_controls`)

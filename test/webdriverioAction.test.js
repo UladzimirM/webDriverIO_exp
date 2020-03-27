@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('webdriverIO API Actions', function() {
   it('should hover on figure 1', function() {
     browser.url(`${browser.options.baseUrl}hovers`)

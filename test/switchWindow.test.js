@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('Switch window', function() {
   it('Should switch to the next window', function() {
     browser.url(`${browser.options.baseUrl}/windows`)

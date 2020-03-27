@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('Switch to iframe', function() {
   it('Should switch to iframe', function() {
     browser.url(`${browser.options.baseUrl}iframe`)

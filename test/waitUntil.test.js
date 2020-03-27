@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('Wait until', function() {
   it('should wait until the buttton text changes Add', function() {
     browser.url(`${browser.options.baseUrl}dynamic_controls`)

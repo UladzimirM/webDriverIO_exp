@@ -1,4 +1,6 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../../PageObject/basePage')
+let basePage = new BasePage()
+const loginData = require('../../data/loginData')
 describe('Test element action', function() {
   it('should click element', function() {
     browser.url('/')
@@ -22,16 +24,17 @@ describe('Test element action', function() {
   })
   it('should enter username', function() {
     browser.url(`${browser.options.baseUrl}/login`)
-    basePage.enterUsename('Vladimir')
-    assert.equal('Vladimir', basePage.username.getValue())
+    basePage.enterUsename(loginData.userName)
+    assert.equal(loginData.userName, basePage.username.getValue())
   })
   it('should enter password', function() {
-    basePage.enterPassword('123')
-    assert.equal('123', basePage.password.getValue())
+    basePage.enterPassword(loginData.password)
+    assert.equal(loginData.password, basePage.password.getValue())
   })
   it('should clear value', function() {
     basePage.username.click()
     basePage.username.clearValue()
-    assert.equal('', basePage.username.getValue())
+    //assert.equal('', basePage.username.getValue())
+    expect(basePage.username.getValue()).to.equal('')
   })
 })

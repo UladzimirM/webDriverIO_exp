@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('Wait for exist', function() {
   it('should wait until the delete button exists', function() {
     browser.url(`${browser.options.baseUrl}add_remove_elements/`)

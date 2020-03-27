@@ -1,4 +1,6 @@
-const basePage = require('../PageObject/basePage')
+//const BasePage = require('../PageObject/basePage')
+import BasePage from '../PageObject/basePage'
+let basePage = new BasePage()
 describe('Drag and Drop', function() {
   // eslint-disable-next-line
   it.skip('should drag columnA to columnB', function() {

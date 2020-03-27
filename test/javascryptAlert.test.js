@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('Javascrypt Alerts', function() {
   it('should get text of alert', function() {
     browser.url(`${browser.options.baseUrl}javascript_alerts`)

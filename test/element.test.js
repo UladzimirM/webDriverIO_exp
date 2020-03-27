@@ -1,4 +1,5 @@
-const basePage = require('../PageObject/basePage')
+const BasePage = require('../PageObject/basePage')
+let basePage = new BasePage()
 describe('Interacting with elements', function() {
   it('Get text for elements', function() {
     browser.url('/')

@@ -1,8 +1,17 @@
+require('@babel/register')
+const url = require('./urls')
+const ENV = process.env.ENV
+
+if (!ENV || !['qa', 'dev', 'staging'].includes(ENV)) {
+  console.log('Use the following format the test scrypt: ENV = qa|dev|staging')
+  process.exit()
+}
+
 exports.config = {
   //
   // ====================
   // Runner Configuration
-  // ====================
+  // ===================
   //
   // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
   // on a remote machine).
@@ -17,6 +26,9 @@ exports.config = {
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
   specs: ['./test/**/*.js'],
+  suites: {
+    actions: ['./test/actions/*.js'],
+  },
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -88,7 +100,9 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'http://the-internet.herokuapp.com/',
+  baseUrl: url[process.env.ENV],
+  //'http://the-internet.herokuapp.com/',
+  //url[process.env.ENV],
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
